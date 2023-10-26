@@ -25,7 +25,7 @@ void performDentistRoomAction(int &anxiety, double &bill, string &services, int 
 //This function raises or lowers the anxiety and makes sure the value is always between 0-10
 //pre: takes anxiety and the value you want to increase or decrease
 //returns new anxiety value
-int updateAnxietyLevel(int& anxiety, double x);
+int updateAnxietyLevel(int& anxiety, const double x=0);
 
 //This function uses the anxiety and bill values to output the final bill
 //pre: anxiety, bill, and services
@@ -35,7 +35,7 @@ int displayFinalSummary(int anxiety, double bill, string services);
 //This function is a running total of all activity cost's
 //pre: takes bill and price you want to add
 //returns new bill value
-int updateCost(double &bill, double x);
+int updateCost(double &bill, const double x=0);
 
 int main()
 {
@@ -101,12 +101,12 @@ int displayFinalSummary(int anxiety, double bill, string services) {
     cout << "----------------------\nTotal Amount Due: $" << fixed << setprecision(2) << bill << endl;
     return 0;
 }
-int updateCost(double &bill, double x) {
+int updateCost(double &bill, const double x=0.0) {
     bill += x;
     return bill;
 
 }
-int updateAnxietyLevel(int &anxiety,double x) {
+int updateAnxietyLevel(int &anxiety,const double x=0.0) {
     anxiety += x;
     if (anxiety > 10) {
         anxiety = 10;
